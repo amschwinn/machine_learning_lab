@@ -1,4 +1,4 @@
-# Data Mining Lab (MLDM Grad Program)
+# Machine Learning Lab (MLDM Grad Program)
 
 Author: Austin Schwinn
 

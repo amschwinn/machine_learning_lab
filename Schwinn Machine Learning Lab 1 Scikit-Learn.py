@@ -3,8 +3,11 @@
 Machine Learning Practical Session
 
 Learning with Scikit-Learn
+KNN, Decision Trees, MLP
+Uses Iris dataset and original kayak dataset
 
 By: Austin Schwinn
+
 Feb 27, 2017
 """
 #############################

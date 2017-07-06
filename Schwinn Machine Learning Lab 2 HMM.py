@@ -124,6 +124,7 @@ print("Observations", ", ".join(map(lambda x: observations[x], sequence)))
 print("Associated states:", ", ".join(map(lambda x: states[x], state_seq)))
 
 ###################################################
+#%%
 #Exercise 2
 #HMM with string as states
  
@@ -200,6 +201,7 @@ print(math.exp(logproba))
 
 
 #########################################################
+#%%
 #Exercise 3
 #HMM for sequence of string states
 A = np.array([[0.4,.6],[.52,.48]])
@@ -258,49 +260,3 @@ print(model.score(seq31))
 print(math.exp(model.score(seq32)))
 print(model.score(seq32))
 
-###################################################
-#Exercise 4 
-#Handwritten digits classification with HMM
-
-#Load first digit
-from sklearn.model_selection import train_test_split
-import random
-digits1 = []
-i = 0
-lines = np.loadtxt('digit_strings/1.txt')
-for line in lines: 
-    digits1.append(','.join(str(int(lines[1]))).split(","))
-    digits1[i] = map(int,digits1[i])
-    i=i+1
-digits1 = np.asarray(digits1)
-   
-i=0
-for i in range(len(digits1)):
-    digits1[i] = np.array([i]).T
-    i=i+1   
-#Split into training and test
-train1,test1,=train_test_split(digits1,test_size=0.2,random_state=random.seed())
-#check=np.array([train1[1]]).T
-#concatenate our multiple sequences into 1
-lengths1=[]
-for i in train1:
-    lengths1.append(len(i))
-sample1=np.concatenate(np.array([train1]))
-
-#start the model
-n_states=8
-model1 = hmm.MultinomialHMM(n_components=n_states, init_params="",
-                           n_iter=10,algorithm='map',tol=0.00001)
-
-#Build our intial emission probs
-B = np.array([range(len(sample1))]*n_states)
-for i in range(n_states):
-    for j in range(len(sample1)-2):
-        B[i,j] = (random.randint(0,(100/len(sample1)))/100)
-    B[i,len(sample1)-1] = 1-sum(B[i,range(len(sample1)-2)])
-
-
-model1.emissionprob_=B
-
-
-model1.fit(sample1,lengths1)

@@ -134,6 +134,7 @@ plt.show()
 
 
 #################################
+#%%
 #Exercise 3
 #KNN Classifier on IRIS
 from sklearn import neighbors
@@ -235,6 +236,7 @@ for learn,test in kf.split(X):
 #number of groups is 1 and all the scores are 0.
 
 ##################################
+#%%
 #Exercise 4
 #Decision Trees on IRIS
 from sklearn.datasets import load_iris
@@ -375,6 +377,7 @@ peak just over 80% accuracy.
 '''
 
 ###########################################
+#%%
 #Exercise 5
 #Neural Networks on Digits
 from sklearn.datasets import load_digits
@@ -455,6 +458,7 @@ solver, and the alpha. With each separate change to the parameters, there was
 '''
 
 ###########################################
+#%%
 #Exercise 6
 #Test KNN, DT, MLP on Kayak Data Set from EX2
 
